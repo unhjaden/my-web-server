@@ -7,3 +7,4 @@ FROM alpine:latest
 WORKDIR /root/
 COPY --from=0 /go/src/github.com/myapp/myapp .
 CMD ["./myapp"]
+EXPOSE 80
