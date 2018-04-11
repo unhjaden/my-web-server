@@ -37,5 +37,4 @@ resource "google_compute_instance_group_manager" "instance_group_manager" {
   base_instance_name = "tf-server"
   zone               = "us-central1-f"
   target_size        = "2"
-  label              = "tf-server"
 }
