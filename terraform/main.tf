@@ -34,8 +34,8 @@ resource "google_compute_instance_template" "instance_template" {
 resource "google_compute_instance_group_manager" "instance_group_manager" {
   name               = "instance-group-manager"
   instance_template  = "${google_compute_instance_template.instance_template.self_link}"
-  base_instance_name = "instance-group-manager"
+  base_instance_name = "tf-server"
   zone               = "us-central1-f"
-  target_size        = "1"
-  label              ="tf-server"
+  target_size        = "2"
+  label              = "tf-server"
 }
