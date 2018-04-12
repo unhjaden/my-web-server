@@ -40,3 +40,8 @@ resource "google_compute_instance_group_manager" "instance_group_manager" {
   target_size        = "2"
   project      = "comp698-jah2009"
 }
+resource "google_storage_bucket" "image-store" {
+  project  = "comp698-jah2009"
+  name     = "comp698-jadens-auto-bucket"
+  location = "us-central1"
+}
