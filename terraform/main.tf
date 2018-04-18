@@ -30,6 +30,18 @@ resource "google_compute_instance_template" "instance_template" {
   lifecycle {
     create_before_destroy = true
   }
+
+  metadata {
+    gce-container-declaration = <<EOF
+spec:
+  containers:
+    - image: '[image name]'
+      name: service-container
+      stdin: false
+      tty: false
+  restartPolicy: Always
+EOF
+  }
 }
 
 resource "google_compute_instance_group_manager" "instance_group_manager" {
