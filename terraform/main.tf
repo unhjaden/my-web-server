@@ -34,6 +34,14 @@ resource "google_compute_instance_template" "instance_template_prod" {
     create_before_destroy = true
   }
 
+   service_account {
+    scopes = [
+      "https://www.googleapis.com/auth/compute",
+      "https://www.googleapis.com/auth/cloud-platform",
+      "https://www.googleapis.com/auth/devstorage.read_write",
+    ]
+  }
+
   metadata {
     gce-container-declaration = <<EOF
 spec:
@@ -70,6 +78,14 @@ resource "google_compute_instance_template" "instance_template_staging" {
 
   lifecycle {
     create_before_destroy = true
+  }
+
+   service_account {
+    scopes = [
+      "https://www.googleapis.com/auth/compute",
+      "https://www.googleapis.com/auth/cloud-platform",
+      "https://www.googleapis.com/auth/devstorage.read_write",
+    ]
   }
 
   metadata {
