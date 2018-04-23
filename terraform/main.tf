@@ -84,7 +84,7 @@ EOF
 }
 
 resource "google_compute_instance_group_manager" "prod" {
-  name_prefix        = "instance-group-manager-"
+  name_prefix        = "instance-group-manager-p-"
   instance_template  = "${google_compute_instance_template.instance_template_prod.self_link}"
   base_instance_name = "tf-prod"
   zone               = "us-central1-f"
@@ -93,7 +93,7 @@ resource "google_compute_instance_group_manager" "prod" {
 }
 
 resource "google_compute_instance_group_manager" "staging" {
-  name_prefix        = "instance-group-manager-"
+  name_prefix        = "instance-group-manager-s-"
   instance_template  = "${google_compute_instance_template.instance_template_staging.self_link}"
   base_instance_name = "tf-staging"
   zone               = "us-central1-f"
