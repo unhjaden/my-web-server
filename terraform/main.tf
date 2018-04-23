@@ -14,6 +14,7 @@ resource "google_compute_instance_template" "instance_template_prod" {
   machine_type = "f1-micro"
   region       = "us-central1"
   project      = "comp698-jah2009"
+  tags = ["http-server"]
 
   // boot disk
   disk {
@@ -51,6 +52,7 @@ resource "google_compute_instance_template" "instance_template_staging" {
   machine_type = "f1-micro"
   region       = "us-central1"
   project      = "comp698-jah2009"
+  tags = ["http-server"]
 
   // boot disk
   disk {
