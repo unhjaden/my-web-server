@@ -10,7 +10,7 @@ provider "google" {
 }
 
 resource "google_compute_instance_template" "instance_template_prod" {
-  name_prefix  = "instance-template-"
+  name = "instance-template-prod"
   machine_type = "f1-micro"
   region       = "us-central1"
   project      = "comp698-jah2009"
@@ -47,7 +47,7 @@ EOF
 }
 
 resource "google_compute_instance_template" "instance_template_staging" {
-  name_prefix  = "instance-template-"
+  name  = "instance-template-staging"
   machine_type = "f1-micro"
   region       = "us-central1"
   project      = "comp698-jah2009"
@@ -85,7 +85,7 @@ EOF
 
 resource "google_compute_instance_group_manager" "instance_group_manager" {
   name               = "instance-group-manager"
-  instance_template  = "${google_compute_instance_template.instance_template_prod.self_link}"
+  instance_template  = "${google_compute_instance_template.instance-template-prod.self_link}"
   base_instance_name = "tf-prod"
   zone               = "us-central1-f"
   target_size        = "2"
@@ -94,7 +94,7 @@ resource "google_compute_instance_group_manager" "instance_group_manager" {
 
 resource "google_compute_instance_group_manager" "instance_group_manager" {
   name               = "instance-group-manager"
-  instance_template  = "${google_compute_instance_template.instance_template_staging.self_link}"
+  instance_template  = "${google_compute_instance_template.instance-template-staging.self_link}"
   base_instance_name = "tf-staging"
   zone               = "us-central1-f"
   target_size        = "1"
